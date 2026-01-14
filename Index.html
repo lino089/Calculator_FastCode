@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Minimalist Glassmorphism Calculator V2</title>
+    <title>Minimalist Glassmorphism Calculator V2 - Fixed</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -11,11 +11,13 @@
 </head>
 
 <body>
-    <div class="bg-gradient-mesh"></div>
+    <div class="bg-gradient-mesh" id="mesh-container">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
     <div class="orb orb-4"></div>
+    <div class="orb orb-5"></div>
+    </div>
 
     <main class="main-container">
         <header class="header">
@@ -43,52 +45,61 @@
                 <div class="result-container">
                     <span id="display-main" class="result-main neon-text-glow">0</span>
                 </div>
-
-                <p id="live-result" class="expression" style="opacity: 0.6; font-size: 1.5rem; margin-top: 0.5rem; color: var(--primary);"></p>
+                <p id="live-result" class="expression"></p>
             </div>
 
-<div class="calculator-grid">
-    <button class="glass-button btn-clear col-span-2" onclick="clearDisplay()">CLEAR</button>
-    <button class="glass-button" onclick="appendValue('%')">
-        <span class="material-symbols-outlined">percent</span>
-    </button>
-    <button class="glass-button" onclick="appendValue('/')">
-        <span class="material-symbols-outlined text-primary">horizontal_split</span>
-    </button>
+            <div class="calculator-grid">
+                <button class="glass-button btn-clear col-span-2" onclick="clearDisplay()">CLEAR</button>
+                <button class="glass-button" onclick="appendValue('%')">
+                    <span class="material-symbols-outlined">percent</span>
+                </button>
+                <button class="glass-button" onclick="appendValue('/')">
+                    <span class="material-symbols-outlined text-primary">horizontal_split</span>
+                </button>
 
-    <button class="glass-button text-num" onclick="appendValue('7')">7</button>
-    <button class="glass-button text-num" onclick="appendValue('8')">8</button>
-    <button class="glass-button text-num" onclick="appendValue('9')">9</button>
-    <button class="glass-button" onclick="appendValue('*')">
-        <span class="material-symbols-outlined text-primary">close</span>
-    </button>
+                <button class="glass-button text-num" onclick="appendValue('7')">7</button>
+                <button class="glass-button text-num" onclick="appendValue('8')">8</button>
+                <button class="glass-button text-num" onclick="appendValue('9')">9</button>
+                <button class="glass-button" onclick="appendValue('*')">
+                    <span class="material-symbols-outlined text-primary">close</span>
+                </button>
 
-    <button class="glass-button text-num" onclick="appendValue('4')">4</button>
-    <button class="glass-button text-num" onclick="appendValue('5')">5</button>
-    <button class="glass-button text-num" onclick="appendValue('6')">6</button>
-    <button class="glass-button" onclick="appendValue('-')">
-        <span class="material-symbols-outlined text-primary">remove</span>
-    </button>
+                <button class="glass-button text-num" onclick="appendValue('4')">4</button>
+                <button class="glass-button text-num" onclick="appendValue('5')">5</button>
+                <button class="glass-button text-num" onclick="appendValue('6')">6</button>
+                <button class="glass-button" onclick="appendValue('-')">
+                    <span class="material-symbols-outlined text-primary">remove</span>
+                </button>
 
-    <button class="glass-button text-num" onclick="appendValue('1')">1</button>
-    <button class="glass-button text-num" onclick="appendValue('2')">2</button>
-    <button class="glass-button text-num" onclick="appendValue('3')">3</button>
-    <button class="glass-button" onclick="appendValue('+')">
-        <span class="material-symbols-outlined text-primary">add</span>
-    </button>
+                <button class="glass-button text-num" onclick="appendValue('1')">1</button>
+                <button class="glass-button text-num" onclick="appendValue('2')">2</button>
+                <button class="glass-button text-num" onclick="appendValue('3')">3</button>
+                <button class="glass-button" onclick="appendValue('+')">
+                    <span class="material-symbols-outlined text-primary">add</span>
+                </button>
 
-    <button class="glass-button text-num col-span-2" onclick="appendValue('0')">0</button>
-    <button class="glass-button text-num font-bold" onclick="appendValue('.')">.</button>
-    <button class="btn-equal" onclick="calculate()">
-        <span class="material-symbols-outlined">drag_handle</span>
-    </button>
-</div>
+                <button class="glass-button text-num col-span-2" onclick="appendValue('0')">0</button>
+                <button class="glass-button text-num font-bold" onclick="appendValue('.')">.</button>
+                <button class="btn-equal" onclick="calculate()">
+                    <span class="material-symbols-outlined">drag_handle</span>
+                </button>
+            </div>
 
-        <footer class="footer">
-            <div class="divider"></div>
-            <p class="footer-text">Precision Modular Engine v2.04</p>
-        </footer>
+            <footer class="footer">
+                <div class="divider"></div>
+                <p class="footer-text">Precision Modular Engine v2.04</p>
+            </footer>
+        </div> 
     </main>
+
+<svg style="display: none;">
+  <defs>
+    <filter id="fluid-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="120" />
+    </filter>
+  </defs>
+</svg>
 
     <script src="script.js"></script>
 </body>

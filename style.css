@@ -31,25 +31,33 @@ body {
 .bg-gradient-mesh {
     position: fixed;
     inset: 0;
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(127, 13, 242, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(127, 13, 242, 0.1) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(26, 16, 35, 1) 0px, transparent 100%);
+    background: #0f0816;
+    overflow: hidden;
     z-index: -10;
+    /* Hapus filter dari sini agar pinggiran layar bersih */
 }
 
 .orb {
     position: absolute;
+    width: 45vmax;
+    height: 45vmax;
     border-radius: 50%;
-    filter: blur(80px);
-    z-index: -1;
+    filter: blur(80px); 
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.4;
+    /* Kunci agar tidak berat: */
+    will-change: transform;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    left: 0;
+    top: 0;
 }
-
-.orb-1 { width: 500px; height: 500px; background: rgba(127, 13, 242, 0.1); top: -10%; left: -10%; }
-.orb-2 { width: 400px; height: 400px; background: rgba(127, 13, 242, 0.05); bottom: 10%; right: -5%; }
-.orb-3 { width: 128px; height: 128px; background: rgba(127, 13, 242, 0.1); top: 25%; right: 25%; filter: blur(40px); z-index: -20;}
-.orb-4 { width: 192px; height: 192px; background: rgba(127, 13, 242, 0.05); bottom: 25%; left: 25%; filter: blur(60px); z-index: -20;}
-
+.orb-1 { top: 10%; left: 10%; background: radial-gradient(circle, #7f0df244, transparent 70%); }
+.orb-2 { top: 60%; left: 20%; background: radial-gradient(circle, #450ea044, transparent 70%); }
+.orb-3 { top: 30%; left: 60%; background: radial-gradient(circle, #7f0df233, transparent 70%); }
+.orb-4 { top: 70%; left: 70%; background: radial-gradient(circle, #9d4edd22, transparent 70%); }
+.orb-5 { top: -10%; left: 50%; background: radial-gradient(circle, #7f0df222, transparent 70%); }
 /* Layout Containers */
 .main-container {
     position: relative;
@@ -111,11 +119,14 @@ body {
     width: 100%;
     border-radius: 1.5rem;
     padding: 2rem;
+    /* Tambahkan padding bawah ekstra agar footer dan tombol punya ruang */
+    padding-bottom: 2.5rem; 
     display: flex;
     flex-direction: column;
     gap: 2rem;
     position: relative;
-    overflow: hidden;
+    /* Ubah overflow menjadi visible agar glow tombol tidak terpotong */
+    overflow: visible; 
 }
 
 .grain-overlay {
@@ -124,7 +135,7 @@ body {
     opacity: 0.1;
     pointer-events: none;
     mix-blend-mode: overlay;
-    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrgIswdFjHIf-FTpa145ympjlxMrt7tEeIqZkFwGVyKjJnWYqZdo7NIcj9AEqnlU8IpG0bYxrgMnrJt4FuX0Vwkt812cd0PRZSpDER2NGPjVyWz-aAM86WGcVlFbAMSfeA_LzbgxV0MQOcMHcYidIifOCSrO963pw6KI0_MLbnllh1fnUyQvn6KPUFRKCuqoAE6eRHpcLcxOIWlp-R43xgK1RcJq5alD3cYWTfqmaI_uF68Uen9Xf0iYoM1pN5RKsAIfse636EtCk'); 
+    border-radius: 1.5rem; 
 }
 
 /* Display Section */
@@ -192,10 +203,10 @@ body {
 }
 
 .glass-button:hover {
-    background: rgba(127, 13, 242, 0.15);
-    border-color: rgba(127, 13, 242, 0.5);
-    transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(127, 13, 242, 0.3);
+    background: rgba(127, 13, 242, 0.25);
+    border-color: rgba(127, 13, 242, 0.8);
+    box-shadow: 0 0 20px rgba(127, 13, 242, 0.4); /* Efek berpijar */
+    transform: translateY(-3px) scale(1.05);
 }
 
 .glass-button:active {
@@ -269,3 +280,5 @@ body {
     text-transform: uppercase;
     font-weight: 500;
 }
+
+
