@@ -80,25 +80,6 @@ body {
     gap: 0.75rem;
 }
 
-.brand-icon {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 15px rgba(127, 13, 242, 0.5);
-}
-
-.brand-title {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
 .nav-actions {
     display: flex;
     gap: 1rem;

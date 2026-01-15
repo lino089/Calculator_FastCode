@@ -140,25 +140,20 @@ document.addEventListener('mousemove', (e) => {
 function animate() {
     interpX += (mouseX - interpX) * 0.06;
     interpY += (mouseY - interpY) * 0.06;
-
     const vw = window.innerWidth;
     const vh = window.innerHeight;
-
     orbs.forEach((orb, i) => {
         const mouseRelX = (interpX - vw / 2) / (vw / 2);
         const mouseRelY = (interpY - vh / 2) / (vh / 2);
-
         const travelRange = vw * (orb.factor * 1.8);
-
         const shiftX = mouseRelX * travelRange;
         const shiftY = mouseRelY * travelRange;
-
         const oscillate = Math.sin(Date.now() * 0.001 + orb.phase) * 40;
-
         const finalX = orb.x + shiftX + oscillate;
         const finalY = orb.y + shiftY + oscillate;
-
-        orb.el.style.transform = `translate3d(${finalX}px, ${finalY}px, 0) translate(-50%, -50%) scale(${1 + (i * 0.01)})`;
+        orb.el.style.transform = `translate3d(${finalX}px, 
+                                ${finalY}px, 0) translate(-50%, -50%) 
+                                scale(${1 + (i * 0.01)})`;
     });
 
     requestAnimationFrame(animate);
