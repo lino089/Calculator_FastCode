@@ -1,4 +1,3 @@
-/* Variables */
 :root {
     --primary: #7f0df2;
     --bg-dark: #191022;
@@ -9,11 +8,10 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Perbaikan typo dari box-box-sizing */
+    box-sizing: border-box;
 }
 
 body {
@@ -27,14 +25,12 @@ body {
     overflow: hidden;
 }
 
-/* Background Mesh & Orbs */
 .bg-gradient-mesh {
     position: fixed;
     inset: 0;
     background: #0f0816;
     overflow: hidden;
     z-index: -10;
-    /* Hapus filter dari sini agar pinggiran layar bersih */
 }
 
 .orb {
@@ -42,23 +38,23 @@ body {
     width: 45vmax;
     height: 45vmax;
     border-radius: 50%;
-    filter: blur(80px); 
+    filter: blur(80px);
     pointer-events: none;
     mix-blend-mode: screen;
     opacity: 0.4;
-    /* Kunci agar tidak berat: */
     will-change: transform;
     transform-style: preserve-3d;
     backface-visibility: hidden;
     left: 0;
     top: 0;
 }
+
 .orb-1 { top: 10%; left: 10%; background: radial-gradient(circle, #7f0df244, transparent 70%); }
 .orb-2 { top: 60%; left: 20%; background: radial-gradient(circle, #450ea044, transparent 70%); }
 .orb-3 { top: 30%; left: 60%; background: radial-gradient(circle, #7f0df233, transparent 70%); }
 .orb-4 { top: 70%; left: 70%; background: radial-gradient(circle, #9d4edd22, transparent 70%); }
 .orb-5 { top: -10%; left: 50%; background: radial-gradient(circle, #7f0df222, transparent 70%); }
-/* Layout Containers */
+
 .main-container {
     position: relative;
     display: flex;
@@ -70,7 +66,6 @@ body {
     padding: 0 1rem;
 }
 
-/* Header */
 .header {
     width: 100%;
     display: flex;
@@ -109,7 +104,6 @@ body {
     gap: 1rem;
 }
 
-/* Panels */
 .glass-panel {
     background: var(--glass-bg);
     backdrop-filter: blur(24px);
@@ -119,14 +113,12 @@ body {
     width: 100%;
     border-radius: 1.5rem;
     padding: 2rem;
-    /* Tambahkan padding bawah ekstra agar footer dan tombol punya ruang */
-    padding-bottom: 2.5rem; 
+    padding-bottom: 2.5rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
     position: relative;
-    /* Ubah overflow menjadi visible agar glow tombol tidak terpotong */
-    overflow: visible; 
+    overflow: visible;
 }
 
 .grain-overlay {
@@ -135,10 +127,9 @@ body {
     opacity: 0.1;
     pointer-events: none;
     mix-blend-mode: overlay;
-    border-radius: 1.5rem; 
+    border-radius: 1.5rem;
 }
 
-/* Display Section */
 .display-section {
     position: relative;
     z-index: 10;
@@ -177,7 +168,6 @@ body {
     text-shadow: 0 0 10px rgba(127, 13, 242, 0.6), 0 0 20px rgba(127, 13, 242, 0.4);
 }
 
-/* Grid & Buttons */
 .calculator-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -200,12 +190,14 @@ body {
     transition: var(--transition);
     outline: none;
     font-family: inherit;
+    position: relative;
+    overflow: visible !important;
 }
 
 .glass-button:hover {
     background: rgba(127, 13, 242, 0.25);
     border-color: rgba(127, 13, 242, 0.8);
-    box-shadow: 0 0 20px rgba(127, 13, 242, 0.4); /* Efek berpijar */
+    box-shadow: 0 0 20px rgba(127, 13, 242, 0.4);
     transform: translateY(-3px) scale(1.05);
 }
 
@@ -251,14 +243,12 @@ body {
     transition: var(--transition);
 }
 
-/* Utilities */
 .btn-clear { color: var(--primary); font-weight: 700; letter-spacing: 0.1em; }
 .text-num { color: white; font-size: 1.5rem; font-weight: 500; }
 .col-span-2 { grid-column: span 2; }
 .text-primary { color: var(--primary); }
 .font-bold { font-weight: 700; }
 
-/* Footer */
 .footer {
     margin-top: 1rem;
     display: flex;
@@ -281,4 +271,122 @@ body {
     font-weight: 500;
 }
 
+.ripple {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: ripple-animation 0.6s linear;
+    z-index: 5;
+}
 
+@keyframes ripple-animation {
+    from {
+        width: 0px;
+        height: 0px;
+        opacity: 0.5;
+    }
+    to {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+.shockwave-outer {
+    position: fixed;
+    pointer-events: none;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    animation: shockwave-animate 0.8s cubic-bezier(0.15, 0, 0.2, 1) forwards;
+}
+
+@keyframes shockwave-animate {
+    0% {
+        width: 50px;
+        height: 50px;
+        opacity: 0.8;
+        border-width: 4px;
+    }
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+.ripple-internal {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: ripple-inner 0.5s ease-out forwards;
+    z-index: 2;
+}
+
+@keyframes ripple-inner {
+    from { width: 0; height: 0; opacity: 0.5; }
+    to { width: 150px; height: 150px; opacity: 0; }
+}
+
+.shockwave-equal {
+    position: fixed;
+    pointer-events: none;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    animation: equal-blast 1.2s cubic-bezier(0.1, 0.5, 0.2, 1) forwards;
+}
+
+.shockwave-equal-inner {
+    position: fixed;
+    pointer-events: none;
+    border: 8px solid var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 998;
+    animation: equal-blast-inner 1.4s cubic-bezier(0.1, 0.5, 0.2, 1) forwards;
+}
+
+.screen-flash {
+    position: fixed;
+    inset: 0;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    animation: flash-anim 0.5s ease-out forwards;
+}
+
+@keyframes equal-blast {
+    0% { width: 0; height: 0; opacity: 1; border-width: 20px; }
+    100% { width: 2500px; height: 2500px; opacity: 0; border-width: 1px; }
+}
+
+@keyframes equal-blast-inner {
+    0% { width: 0; height: 0; opacity: 0.8; border-width: 40px; }
+    50% { opacity: 0.5; }
+    100% { width: 3000px; height: 3000px; opacity: 0; border-width: 2px; }
+}
+
+@keyframes flash-anim {
+    0% { opacity: 0.3; }
+    100% { opacity: 0; }
+}
+
+.screen-shake {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-2px, 0, 0); }
+    20%, 80% { transform: translate3d(4px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+    40%, 60% { transform: translate3d(6px, 0, 0); }
+}
