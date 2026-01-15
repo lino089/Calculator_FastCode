@@ -1,5 +1,5 @@
-===========================================================
-             DOKUMENTASI TEKNIS: NOVACALC
+
+        DOKUMENTASI TEKNIS: Responsive Calculator
 ===========================================================
 
 1. RINGKASAN PROYEK
@@ -55,4 +55,4 @@ C. Fitur & Keamanan (script.js)
 3. Buka index.html di browser modern (Chrome/Edge/Firefox).
 
 -----------------------------------------------------------
-===========================================================
+
