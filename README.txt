@@ -1,4 +1,3 @@
-
         DOKUMENTASI TEKNIS: Responsive Calculator
 ===========================================================
 

@@ -1,83 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Menentukan encoding karakter agar teks tampil dengan benar -->
     <meta charset="utf-8"/>
+
+    <!-- Membuat layout responsif sesuai ukuran layar device -->
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <!-- Judul halaman yang muncul di tab browser -->
     <title>Minimalist Glassmorphism Calculator V2 - Fixed</title>
 
+    <!-- Memuat font Space Grotesk dari Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <!-- Memuat ikon Material Symbols (ikon operator kalkulator) -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- Menautkan file CSS untuk desain dan animasi -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+    <!-- Background mesh dengan efek orb dan gradient -->
     <div class="bg-gradient-mesh" id="mesh-container">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="orb orb-4"></div>
-    <div class="orb orb-5"></div>
+        <!-- Orb cahaya latar belakang -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+        <div class="orb orb-5"></div>
     </div>
 
+    <!-- Container utama aplikasi kalkulator -->
     <main class="main-container">
+
+        <!-- Header (branding, bisa diisi logo atau nama aplikasi) -->
         <header class="header">
             <div class="brand">
+                <!-- Area logo / nama app -->
             </div>
         </header>
 
+        <!-- Panel utama kalkulator dengan efek glassmorphism -->
         <div class="glass-panel">
+
+            <!-- Overlay grain (tekstur noise agar terlihat premium) -->
             <div class="grain-overlay"></div>
 
+            <!-- Area tampilan angka dan hasil -->
             <div class="display-section">
+
+                <!-- Container hasil utama -->
                 <div class="result-container">
+                    <!-- Angka utama yang ditampilkan -->
                     <span id="display-main" class="result-main neon-text-glow">0</span>
                 </div>
+
+                <!-- Preview hasil perhitungan otomatis -->
                 <p id="live-result" class="expression"></p>
             </div>
 
+            <!-- Grid tombol kalkulator -->
             <div class="calculator-grid">
+
+                <!-- Tombol CLEAR untuk menghapus semua input -->
                 <button class="glass-button btn-clear col-span-2" onclick="clearDisplay()">CLEAR</button>
+
+                <!-- Tombol persen -->
                 <button class="glass-button" onclick="appendValue('%')">
                     <span class="material-symbols-outlined">percent</span>
                 </button>
+
+                <!-- Tombol pembagian -->
                 <button class="glass-button" onclick="appendValue('/')">
                     <span class="material-symbols-outlined">horizontal_split</span>
                 </button>
 
+                <!-- Tombol angka 7,8,9 -->
                 <button class="glass-button text-num" onclick="appendValue('7')">7</button>
                 <button class="glass-button text-num" onclick="appendValue('8')">8</button>
                 <button class="glass-button text-num" onclick="appendValue('9')">9</button>
+
+                <!-- Tombol perkalian -->
                 <button class="glass-button" onclick="appendValue('*')">
                     <span class="material-symbols-outlined text-primary">close</span>
                 </button>
 
+                <!-- Tombol angka 4,5,6 -->
                 <button class="glass-button text-num" onclick="appendValue('4')">4</button>
                 <button class="glass-button text-num" onclick="appendValue('5')">5</button>
                 <button class="glass-button text-num" onclick="appendValue('6')">6</button>
+
+                <!-- Tombol pengurangan -->
                 <button class="glass-button" onclick="appendValue('-')">
                     <span class="material-symbols-outlined text-primary">remove</span>
                 </button>
 
+                <!-- Tombol angka 1,2,3 -->
                 <button class="glass-button text-num" onclick="appendValue('1')">1</button>
                 <button class="glass-button text-num" onclick="appendValue('2')">2</button>
                 <button class="glass-button text-num" onclick="appendValue('3')">3</button>
+
+                <!-- Tombol penjumlahan -->
                 <button class="glass-button" onclick="appendValue('+')">
                     <span class="material-symbols-outlined text-primary">add</span>
                 </button>
 
+                <!-- Tombol angka 0 (lebar 2 kolom) -->
                 <button class="glass-button text-num col-span-2" onclick="appendValue('0')">0</button>
+
+                <!-- Tombol titik desimal -->
                 <button class="glass-button text-num font-bold" onclick="appendValue('.')">.</button>
+
+                <!-- Tombol sama dengan (=) untuk menghitung hasil akhir -->
                 <button class="btn-equal" onclick="calculate()">
                     <span class="material-symbols-outlined">drag_handle</span>
                 </button>
             </div>
 
+            <!-- Footer dekoratif -->
             <footer class="footer">
                 <div class="divider"></div>
             </footer>
         </div> 
     </main>
 
+    <!-- SVG filter untuk efek distorsi cair (tidak tampil di layar) -->
     <svg style="display: none;">
         <defs>
             <filter id="fluid-filter">
@@ -87,6 +136,8 @@
         </defs>
     </svg>
 
+    <!-- Menautkan file JavaScript untuk logika kalkulator dan animasi -->
     <script src="script.js"></script>
+
 </body>
 </html>

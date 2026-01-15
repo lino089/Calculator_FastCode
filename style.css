@@ -1,38 +1,45 @@
+/* ================================
+   ROOT VARIABLES (Design System)
+   ================================ */
 :root {
-    --primary: #7f0df2;
-    --bg-dark: #191022;
-    --text-white: rgba(255, 255, 255, 0.9);
-    --text-dim: rgba(255, 255, 255, 0.4);
-    --glass-bg: rgba(25, 16, 34, 0.4);
-    --glass-border: rgba(127, 13, 242, 0.2);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --primary: #7f0df2;                /* Warna utama (ungu neon) */
+    --bg-dark: #191022;                /* Background utama gelap */
+    --text-white: rgba(255, 255, 255, 0.9); /* Warna teks putih utama */
+    --text-dim: rgba(255, 255, 255, 0.4);   /* Warna teks redup */
+    --glass-bg: rgba(25, 16, 34, 0.4); /* Warna latar kaca (glassmorphism) */
+    --glass-border: rgba(127, 13, 242, 0.2); /* Border kaca berwarna ungu */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Animasi transisi global */
 }
 
+/* Reset semua margin, padding, dan box model */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Pengaturan dasar halaman */
 body {
-    font-family: 'Space Grotesk', sans-serif;
-    background-color: var(--bg-dark);
-    color: white;
-    min-height: 100vh;
+    font-family: 'Space Grotesk', sans-serif; /* Font modern futuristik */
+    background-color: var(--bg-dark);        /* Background gelap */
+    color: white;                            /* Warna teks default */
+    min-height: 100vh;                       /* Tinggi minimal layar penuh */
     display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    justify-content: center;                /* Konten di tengah layar */
+    overflow: hidden;                       /* Mencegah scroll akibat animasi */
 }
 
+/* Background gradient mesh */
 .bg-gradient-mesh {
     position: fixed;
     inset: 0;
     background: #0f0816;
     overflow: hidden;
-    z-index: -10;
+    z-index: -10; /* Di belakang semua elemen */
 }
 
+/* Orb adalah cahaya blur yang bergerak */
 .orb {
     position: absolute;
     width: 45vmax;
@@ -49,12 +56,14 @@ body {
     top: 0;
 }
 
+/* Setiap orb punya posisi dan warna berbeda */
 .orb-1 { top: 10%; left: 10%; background: radial-gradient(circle, #7f0df244, transparent 70%); }
 .orb-2 { top: 60%; left: 20%; background: radial-gradient(circle, #450ea044, transparent 70%); }
 .orb-3 { top: 30%; left: 60%; background: radial-gradient(circle, #7f0df233, transparent 70%); }
 .orb-4 { top: 70%; left: 70%; background: radial-gradient(circle, #9d4edd22, transparent 70%); }
 .orb-5 { top: -10%; left: 50%; background: radial-gradient(circle, #7f0df222, transparent 70%); }
 
+/* Container utama aplikasi */
 .main-container {
     position: relative;
     display: flex;
@@ -66,6 +75,7 @@ body {
     padding: 0 1rem;
 }
 
+/* Header atas kalkulator */
 .header {
     width: 100%;
     display: flex;
@@ -74,17 +84,20 @@ body {
     padding: 0 1.5rem;
 }
 
+/* Brand / logo */
 .brand {
     display: flex;
     align-items: center;
     gap: 0.75rem;
 }
 
+/* Area tombol navigasi (jika ada) */
 .nav-actions {
     display: flex;
     gap: 1rem;
 }
 
+/* Panel kaca utama kalkulator */
 .glass-panel {
     background: var(--glass-bg);
     backdrop-filter: blur(24px);
@@ -102,6 +115,7 @@ body {
     overflow: visible;
 }
 
+/* Efek noise/grain pada kaca */
 .grain-overlay {
     position: absolute;
     inset: 0;
@@ -111,6 +125,7 @@ body {
     border-radius: 1.5rem;
 }
 
+/* Area layar kalkulator */
 .display-section {
     position: relative;
     z-index: 10;
@@ -122,6 +137,7 @@ body {
     justify-content: flex-end;
 }
 
+/* Ekspresi matematika (input) */
 .expression {
     color: var(--primary);
     font-size: 1.5rem;
@@ -130,6 +146,7 @@ body {
     min-height: 1.5rem;
 }
 
+/* Container hasil utama */
 .result-container {
     display: flex;
     align-items: baseline;
@@ -137,6 +154,7 @@ body {
     gap: 0.5rem;
 }
 
+/* Angka hasil utama */
 .result-main {
     font-size: 3.75rem;
     font-weight: 700;
@@ -145,10 +163,12 @@ body {
     line-height: 1.1;
 }
 
+/* Efek glow neon pada teks */
 .neon-text-glow {
     text-shadow: 0 0 10px rgba(127, 13, 242, 0.6), 0 0 20px rgba(127, 13, 242, 0.4);
 }
 
+/* Grid tombol kalkulator */
 .calculator-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -157,6 +177,7 @@ body {
     z-index: 10;
 }
 
+/* Tombol kaca standar */
 .glass-button {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(8px);
@@ -175,6 +196,7 @@ body {
     overflow: visible !important;
 }
 
+/* Efek hover tombol */
 .glass-button:hover {
     background: rgba(127, 13, 242, 0.25);
     border-color: rgba(127, 13, 242, 0.8);
@@ -182,10 +204,12 @@ body {
     transform: translateY(-3px) scale(1.05);
 }
 
+/* Efek klik */
 .glass-button:active {
     transform: scale(0.95);
 }
 
+/* Tombol "=" */
 .btn-equal {
     height: 4rem;
     border-radius: 9999px;
@@ -200,16 +224,19 @@ body {
     transition: var(--transition);
 }
 
+/* Hover tombol "=" */
 .btn-equal:hover {
     background: rgba(127, 13, 242, 0.8);
     transform: translateY(-2px);
 }
 
+/* Icon di tombol "=" */
 .btn-equal span {
     font-size: 1.875rem;
     font-weight: 700;
 }
 
+/* Tombol icon kecil */
 .icon-button {
     width: 2.5rem;
     height: 2.5rem;
@@ -224,12 +251,14 @@ body {
     transition: var(--transition);
 }
 
+/* Variasi teks dan grid */
 .btn-clear { color: var(--primary); font-weight: 700; letter-spacing: 0.1em; }
 .text-num { color: white; font-size: 1.5rem; font-weight: 500; }
 .col-span-2 { grid-column: span 2; }
 .text-primary { color: var(--primary); }
 .font-bold { font-weight: 700; }
 
+/* Footer bawah kalkulator */
 .footer {
     margin-top: 1rem;
     display: flex;
@@ -239,12 +268,14 @@ body {
     opacity: 0.4;
 }
 
+/* Garis dekoratif */
 .divider {
     height: 1px;
     width: 6rem;
     background: linear-gradient(to right, transparent, var(--primary), transparent);
 }
 
+/* Teks kecil footer */
 .footer-text {
     font-size: 0.75rem;
     letter-spacing: 0.2em;
@@ -252,6 +283,7 @@ body {
     font-weight: 500;
 }
 
+/* Efek ripple saat klik */
 .ripple {
     position: absolute;
     background: rgba(255, 255, 255, 0.4);
@@ -262,6 +294,7 @@ body {
     z-index: 5;
 }
 
+/* Animasi ripple */
 @keyframes ripple-animation {
     from {
         width: 0px;
@@ -275,6 +308,7 @@ body {
     }
 }
 
+/* Shockwave efek klik */
 .shockwave-outer {
     position: fixed;
     pointer-events: none;
@@ -285,6 +319,7 @@ body {
     animation: shockwave-animate 0.8s cubic-bezier(0.15, 0, 0.2, 1) forwards;
 }
 
+/* Animasi shockwave */
 @keyframes shockwave-animate {
     0% {
         width: 50px;
@@ -300,6 +335,7 @@ body {
     }
 }
 
+/* Ripple bagian dalam */
 .ripple-internal {
     position: absolute;
     background: rgba(255, 255, 255, 0.3);
@@ -310,11 +346,13 @@ body {
     z-index: 2;
 }
 
+/* Animasi ripple kecil */
 @keyframes ripple-inner {
     from { width: 0; height: 0; opacity: 0.5; }
     to { width: 150px; height: 150px; opacity: 0; }
 }
 
+/* Shockwave khusus tombol "=" */
 .shockwave-equal {
     position: fixed;
     pointer-events: none;
@@ -325,6 +363,7 @@ body {
     animation: equal-blast 1.2s cubic-bezier(0.1, 0.5, 0.2, 1) forwards;
 }
 
+/* Shockwave lapisan dalam */
 .shockwave-equal-inner {
     position: fixed;
     pointer-events: none;
@@ -335,6 +374,7 @@ body {
     animation: equal-blast-inner 1.4s cubic-bezier(0.1, 0.5, 0.2, 1) forwards;
 }
 
+/* Flash layar saat "=" ditekan */
 .screen-flash {
     position: fixed;
     inset: 0;
@@ -345,6 +385,7 @@ body {
     animation: flash-anim 0.5s ease-out forwards;
 }
 
+/* Animasi blast "=" */
 @keyframes equal-blast {
     0% { width: 0; height: 0; opacity: 1; border-width: 20px; }
     100% { width: 2500px; height: 2500px; opacity: 0; border-width: 1px; }
@@ -356,15 +397,18 @@ body {
     100% { width: 3000px; height: 3000px; opacity: 0; border-width: 2px; }
 }
 
+/* Animasi flash putih */
 @keyframes flash-anim {
     0% { opacity: 0.3; }
     100% { opacity: 0; }
 }
 
+/* Efek shake layar */
 .screen-shake {
     animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
 }
 
+/* Keyframe shake */
 @keyframes shake {
     10%, 90% { transform: translate3d(-2px, 0, 0); }
     20%, 80% { transform: translate3d(4px, 0, 0); }
