@@ -1,6 +1,5 @@
 ===========================================================
-             DOKUMENTASI TEKNIS: GLASSCALC V2
-             Precision Modular Engine v2.04
+        DOKUMENTASI TEKNIS: Responsive Calculator
 ===========================================================
 
 1. RINGKASAN PROYEK
@@ -56,6 +55,4 @@ C. Fitur & Keamanan (script.js)
 3. Buka index.html di browser modern (Chrome/Edge/Firefox).
 
 -----------------------------------------------------------
-STATUS  : STABLE | v2.04
-LISENSI : Open Source / MIT
 ===========================================================
